@@ -1,0 +1,12 @@
+
+Simple Recharge is an application build to top-up your SIM prepaid. The application protects your privacy and security so you don't need to worry about the safety of your information. Enjoy the hassle-free experience of the application. Simple Recharge is completely free to use application. You can top up your SIM as many times as you want.
+
+How to use the Simple Recharge application
+- Download and launch the Simple Recharge app
+- Allow app permissions to phone to enable the functions
+- Select the SIM that you want to recharge
+- Allow the camera permissions to open the phone camera
+- Take a photo of the scratched recharge card. Make sure to scratch the recharge card clearly and the quality of the photo.
+- Simple recharge take some moment to identify the recharge number of your card
+- After successful identification of the recharge number, Simple Recharge will direct you to your dial pad
+- Feel free to confirm the recharge number shown in your dial pad and do the recharge
