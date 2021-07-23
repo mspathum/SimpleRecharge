@@ -13,8 +13,7 @@ import 'package:simplerecharge/pages/home/notifications.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:simplerecharge/utils/url_launcher.dart';
-// ignore: import_of_legacy_library_into_null_safe
-import 'package:drawer_swipe/drawer_swipe.dart';
+import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:simplerecharge/services/firebase_ml_service.dart';
 
 class HomePage extends StatefulWidget {
@@ -24,7 +23,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final appState = getIt.get<AppState>();
-  var drawerKey = GlobalKey<SwipeDrawerState>();
+  final _advancedDrawerController = AdvancedDrawerController();
+
   bool isLoading = false;
 
   late File image;
@@ -49,9 +49,6 @@ class _HomePageState extends State<HomePage> {
       setState(() {
         isLoading = true;
       });
-      // PickedFile? pickedFile =
-      //     await imagePicker.getImage(source: ImageSource.camera);
-      // image = File(pickedFile?.path);
       getImage();
       String result = await FirebaseMLService.recogniseText(image);
       print("++++++++++++++++++");
@@ -225,15 +222,23 @@ class _HomePageState extends State<HomePage> {
         AppBar(
           elevation: 0.0,
           backgroundColor: AppColors.primary,
-          leading: GestureDetector(
-              onTap: () {
-                if (drawerKey.currentState!.isOpened()) {
-                  drawerKey.currentState!.closeDrawer();
-                } else {
-                  drawerKey.currentState!.openDrawer();
-                }
+          leading: IconButton(
+            onPressed: () {
+              _advancedDrawerController.showDrawer();
+            },
+            icon: ValueListenableBuilder<AdvancedDrawerValue>(
+              valueListenable: _advancedDrawerController,
+              builder: (_, value, __) {
+                return AnimatedSwitcher(
+                  duration: Duration(milliseconds: 250),
+                  child: Icon(
+                    value.visible ? Icons.clear : Icons.menu,
+                    key: ValueKey<bool>(value.visible),
+                  ),
+                );
               },
-              child: Icon(Icons.menu_outlined, color: Colors.white)),
+            ),
+          ),
         ),
         Expanded(
           child: Container(
@@ -304,16 +309,20 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SwipeDrawer(
-        radius: 20,
-        key: drawerKey,
-        hasClone: false,
-        bodyBackgroundPeekSize: 30,
-        backgroundColor: AppColors.secondary,
-        drawer: buildDrawer(),
-        child: buildBody(),
-      ),
-    );
+    return AdvancedDrawer(
+        backdropColor: AppColors.secondary,
+        controller: _advancedDrawerController,
+        animationCurve: Curves.easeInOut,
+        animationDuration: const Duration(milliseconds: 300),
+        animateChildDecoration: true,
+        rtlOpening: false,
+        disabledGestures: false,
+        childDecoration: const BoxDecoration(
+          borderRadius: const BorderRadius.all(Radius.circular(16)),
+        ),
+        child: Scaffold(
+          body: buildBody(),
+        ),
+        drawer: buildDrawer());
   }
 }
