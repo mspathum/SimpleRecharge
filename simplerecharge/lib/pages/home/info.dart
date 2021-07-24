@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:simplerecharge/themes/app_themes.dart';
 import 'package:simplerecharge/widgets/app_widgets/custom_image.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:simplerecharge/services/ad_helper_service.dart';
 
 class InfoPage extends StatefulWidget {
   @override
@@ -8,6 +10,38 @@ class InfoPage extends StatefulWidget {
 }
 
 class _InfoPageState extends State<InfoPage> {
+  late BannerAd bannerAd;
+  bool isBannerAdReady = false;
+
+  @override
+  void initState() {
+    super.initState();
+    bannerAd = BannerAd(
+      adUnitId: AdHelperService.bannerAdUnitId,
+      request: AdRequest(),
+      size: AdSize.banner,
+      listener: BannerAdListener(
+        onAdLoaded: (_) {
+          setState(() {
+            isBannerAdReady = true;
+          });
+        },
+        onAdFailedToLoad: (ad, err) {
+          print('Failed to load a banner ad: ${err.message}');
+          isBannerAdReady = false;
+          ad.dispose();
+        },
+      ),
+    );
+    bannerAd.load();
+  }
+
+  @override
+  void dispose() {
+    bannerAd.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -89,7 +123,18 @@ class _InfoPageState extends State<InfoPage> {
               SizedBox(height: 5.0),
             ],
           ),
-          SizedBox(height: 15.0)
+          SizedBox(height: 10.0),
+          if (isBannerAdReady)
+            Align(
+              alignment: Alignment.topCenter,
+              child: Container(
+                color: AppColors.backgroundColor,
+                width: bannerAd.size.width.toDouble(),
+                height: bannerAd.size.height.toDouble(),
+                child: AdWidget(ad: bannerAd),
+              ),
+            ),
+          SizedBox(height: 10.0)
         ]),
       )),
     );

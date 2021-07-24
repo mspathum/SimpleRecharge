@@ -12,9 +12,11 @@ import 'package:simplerecharge/utils/message_dialog.dart';
 import 'package:simplerecharge/pages/home/notifications.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:simplerecharge/utils/url_launcher.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:simplerecharge/services/firebase_ml_service.dart';
+import 'package:simplerecharge/services/ad_helper_service.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -30,10 +32,37 @@ class _HomePageState extends State<HomePage> {
   late File image;
   late ImagePicker imagePicker;
 
+  late BannerAd bannerAd;
+  bool isBannerAdReady = false;
+
   @override
   void initState() {
     super.initState();
     imagePicker = ImagePicker();
+    bannerAd = BannerAd(
+      adUnitId: AdHelperService.bannerAdUnitId,
+      request: AdRequest(),
+      size: AdSize.banner,
+      listener: BannerAdListener(
+        onAdLoaded: (_) {
+          setState(() {
+            isBannerAdReady = true;
+          });
+        },
+        onAdFailedToLoad: (ad, err) {
+          print('Failed to load a banner ad: ${err.message}');
+          isBannerAdReady = false;
+          ad.dispose();
+        },
+      ),
+    );
+    bannerAd.load();
+  }
+
+  @override
+  void dispose() {
+    bannerAd.dispose();
+    super.dispose();
   }
 
   Future<void> getImage() async {
@@ -288,6 +317,18 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                     SizedBox(height: 15.0),
+                    if (isBannerAdReady)
+                      Align(
+                        alignment: Alignment.topCenter,
+                        child: Container(
+                          color: AppColors.backgroundColor,
+                          padding: EdgeInsets.only(left: 5.0, right: 5.0),
+                          width: bannerAd.size.width.toDouble(),
+                          height: bannerAd.size.height.toDouble(),
+                          child: AdWidget(ad: bannerAd),
+                        ),
+                      ),
+                    SizedBox(height: 15.0)
                   ],
                 ),
                 isLoading == true
@@ -298,7 +339,7 @@ class _HomePageState extends State<HomePage> {
                               AppColors.secondary),
                         ),
                       )
-                    : Container()
+                    : Container(),
               ],
             ),
           ),

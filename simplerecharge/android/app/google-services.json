@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "317543474776",
-    "project_id": "simplerecharge-de2e0",
-    "storage_bucket": "simplerecharge-de2e0.appspot.com"
+    "project_number": "316470198190",
+    "project_id": "simple-recharge-ed145",
+    "storage_bucket": "simple-recharge-ed145.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:317543474776:android:7ebf9f36397a18f04f0c2d",
+        "mobilesdk_app_id": "1:316470198190:android:d37b58191def540f7dd23f",
         "android_client_info": {
           "package_name": "com.simplerecharge.simplerecharge"
         }
       },
       "oauth_client": [
         {
-          "client_id": "317543474776-4pegj8ij9v8t0g0sgm6d43vfulr0ilrf.apps.googleusercontent.com",
+          "client_id": "316470198190-37r2v2o1us8hfp3sd6qr62ao6henstbd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.simplerecharge.simplerecharge",
+            "certificate_hash": "7380316b19d5dd69ec31517e2c8cd1d72893bea3"
+          }
+        },
+        {
+          "client_id": "316470198190-g757g6sh0bkbq4bvgtk9evtb45cln0an.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA1Tr-yXPCoQLbJ0IJns73RSOT4pBrtdXk"
+          "current_key": "AIzaSyDpMo8j9xUSkZHqJDVh89ZvYLalaNYgvlg"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "317543474776-4pegj8ij9v8t0g0sgm6d43vfulr0ilrf.apps.googleusercontent.com",
+              "client_id": "316470198190-g757g6sh0bkbq4bvgtk9evtb45cln0an.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

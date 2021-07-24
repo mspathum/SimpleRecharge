@@ -8,6 +8,7 @@ import 'package:simplerecharge/widgets/app_widgets/custom_image.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class SplashScreenPage extends StatefulWidget {
   @override
@@ -20,6 +21,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
 
   @override
   void initState() {
+    initGoogleMobileAds();
     super.initState();
   }
 
@@ -61,6 +63,10 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
     await remoteConfig.fetchAndActivate();
 
     return remoteConfig.getString('app_version_param');
+  }
+
+  Future<InitializationStatus> initGoogleMobileAds() {
+    return MobileAds.instance.initialize();
   }
 
   @override
