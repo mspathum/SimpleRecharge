@@ -10,6 +10,7 @@ import 'package:simplerecharge/widgets/app_widgets/home_background.dart';
 import 'package:simplerecharge/widgets/sim/sim_card.dart';
 import 'package:simplerecharge/utils/message_dialog.dart';
 import 'package:simplerecharge/pages/home/notifications.dart';
+import 'package:simplerecharge/pages/home/language_change.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -78,7 +79,7 @@ class _HomePageState extends State<HomePage> {
       setState(() {
         isLoading = true;
       });
-      getImage();
+      await getImage();
       String result = await FirebaseMLService.recogniseText(image);
       print("++++++++++++++++++");
       print(result);
@@ -114,7 +115,8 @@ class _HomePageState extends State<HomePage> {
       setState(() {
         isLoading = false;
       });
-      showMessageDialog(context, "Error", "Failed to identify card details.");
+      showMessageDialog(context, appState.getTranslation("Error"),
+          appState.getTranslation("Failed_to_identify_card"));
     }
   }
 
@@ -150,7 +152,8 @@ class _HomePageState extends State<HomePage> {
 
       launch("tel://$rechargeCode");
     } catch (err) {
-      showMessageDialog(context, "Error", "Failed to open Dialpad.");
+      showMessageDialog(context, appState.getTranslation("Error"),
+          appState.getTranslation("Failed_to_open_dialpad"));
     }
   }
 
@@ -189,43 +192,15 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           SizedBox(height: 10.0),
+          _buildDrawerTile(Icons.lightbulb_outline, "Info", InfoPage()),
+          _buildDrawerTile(Icons.notifications_outlined, "Notifications",
+              NotificationsPage()),
+          _buildDrawerTile(
+              Icons.language_outlined, "lang_changed", LangChangePage()),
           ListTile(
             leading:
-                Icon(Icons.lightbulb_outline, color: Colors.white, size: 22.0),
-            title: Text('Info',
-                style: TextStyle(fontSize: 16.0, color: Colors.white)),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => InfoPage()),
-              );
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.notifications_outlined,
-                color: Colors.white, size: 24.0),
-            title: Text('Notifications',
-                style: TextStyle(fontSize: 16.0, color: Colors.white)),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => NotificationsPage()),
-              );
-            },
-          ),
-          ListTile(
-            leading:
-                Icon(Icons.thumb_up_outlined, color: Colors.white, size: 22.0),
-            title: Text('Rate Us',
-                style: TextStyle(fontSize: 16.0, color: Colors.white)),
-            onTap: () {
-              launchURL(
-                  context, Platform.isAndroid ? PLAYSTORE_PATH : APPSTORE_PATH);
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.help_outline, color: Colors.white, size: 24.0),
-            title: Text('Support',
+                Icon(Icons.thumb_up_outlined, color: Colors.white, size: 21.0),
+            title: Text(appState.getTranslation("Rate_Us"),
                 style: TextStyle(fontSize: 16.0, color: Colors.white)),
             onTap: () {
               launchURL(
@@ -242,6 +217,20 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
+    );
+  }
+
+  Widget _buildDrawerTile(IconData icon, String title, Widget route) {
+    return ListTile(
+      leading: Icon(icon, color: Colors.white, size: 24.0),
+      title: Text(appState.getTranslation(title),
+          style: TextStyle(fontSize: 16.0, color: Colors.white)),
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => route))
+            .then((value) {
+          setState(() {});
+        });
+      },
     );
   }
 

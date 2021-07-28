@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:simplerecharge/themes/app_themes.dart';
+import 'package:simplerecharge/main.dart';
+import 'package:simplerecharge/state/app_state.dart';
+
+final appState = getIt.get<AppState>();
 
 Future<void> showMessageDialog(
     BuildContext context, String title, String msg) async {
@@ -16,7 +20,7 @@ Future<void> showMessageDialog(
         content: Text(msg, style: TextStyle(fontSize: 16.0)),
         actions: <Widget>[
           CupertinoDialogAction(
-            child: Text('Ok',
+            child: Text(appState.getTranslation("Ok"),
                 style: TextStyle(
                     color: AppColors.primary,
                     fontSize: 18.0,

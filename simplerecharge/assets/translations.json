@@ -1,0 +1,114 @@
+{
+   "Version_Update":{
+      "en":"Version Update",
+      "si":"යාවත්කාලීන කිරීම"
+   },
+   "We_are_better_than_ever":{
+      "en":"We are better than ever!",
+      "si":"අපි වෙන කවරදාටත් වඩා හොඳයි"
+   },
+   "We_have_added_new_features":{
+      "en":"We have added a few new features & fixed some bugs to make your experience as smooth as possible.",
+      "si":"ඔබගේ අත්දැකීම් හැකිතාක් සුමට කිරීම සඳහා අපි නව විශේෂාංග කිහිපයක් එකතු කර දෝෂ කිහිපයක් නිවැරදි කර ඇත්තෙමු."
+   },
+   "Update":{
+      "en":"Update",
+      "si":"යාවත්කාලීන කරන්න"
+   },
+   "Error":{
+      "en":"Error",
+      "si":"දෝෂයකි"
+   },
+   "Failed_to_identify_card":{
+      "en":"Failed to identify card details.Please try again",
+      "si":"කාඩ් විස්තර හඳුනා ගැනීමට අපොහොසත් විය. කරුණාකර නැවත උත්සාහ කරන්න"
+   },
+   "Failed_to_open_dialpad":{
+      "en":"Failed to open dialpad.",
+      "si":"ඩයල්පෑඩ් විවෘත කිරීමට අපොහොසත් විය."
+   },
+   "Info":{
+      "en":"Info",
+      "si":"තොරතුරු"
+   },
+   "Notifications":{
+      "en":"Notifications",
+      "si":"දැනුම්දීම්"
+   },
+   "Rate_Us":{
+      "en":"Rate Us",
+      "si": "අගය කරන්න"
+   },
+   "Support":{
+      "en":"Support",
+      "si": "සහාය"
+   },
+   "Ok":{
+      "en":"Ok",
+      "si": "හරි"
+   },
+   "No_notifications":{
+      "en":"No notifications yet",
+      "si": "තවම දැනුම්දීම් නොමැත"
+   },
+   "Stay_tuned":{
+      "en":"Stay tuned! Notifications will show up here.",
+      "si": "සුසරව සිටින්න! දැනුම්දීම් මෙහි පෙන්වනු ඇත."
+   },
+   "Simple_Recharge_is_an_application":{
+      "en":"Simple Recharge is an application build to top-up your SIM prepaid. The application protects your privacy and security so you don't need to worry about the safety of your information. Enjoy the hassle-free experience of the application. Simple Recharge is completely free to use application. You can top up your SIM as many times as you want.",
+      "si": "Simple Recharge යනු ඔබේ සිම් පෙරගෙවුම් ඉහළට ඔසවා තැබීම සඳහා වන යෙදුමකි. යෙදුම ඔබගේ පෞද්ගලිකත්වය සහ ආරක්ෂාව ආරක්ෂා කරයි, එබැවින් ඔබේ තොරතුරු වල ආරක්ෂාව ගැන කරදර වීමට අවශ්‍ය නැත. යෙදුම ඔබගේ පෞද්ගලිකත්වය සහ ආරක්ෂාව ආරක්ෂා කරයි, එබැවින් ඔබේ තොරතුරු වල ආරක්ෂාව ගැන කරදර වීමට අවශ්‍ය නැත. යෙදුම භාවිතා කිරීමට සම්පූර්ණයෙන්ම නොමිලේ. ඔබට අවශ්‍ය වාර ගණනක් ඔබේ සිම්පත ඉහළට ඔසවා තැබිය හැකිය."
+   },
+   "How_to_use":{
+      "en":"How to use the Simple Recharge application",
+      "si": "යෙදුම භාවිතා කරන්නේ කෙසේද"
+   },
+   "step_1":{
+      "en":"Download and launch the Simple Recharge app.",
+      "si": "යෙදුම බාගත කර දියත් කරන්න."
+   },
+   "step_2":{
+      "en":"Allow app permissions to phone to enable the functions.",
+      "si": "කාර්යයන් සක්‍රීය කිරීමට දුරකථනයට යෙදුම් අවසර වලට ඉඩ දෙන්න."
+   },
+   "step_3":{
+      "en":"Select the SIM that you want to recharge.",
+      "si": "ඔබට නැවත ආරෝපණය කිරීමට අවශ්‍ය සිම්පත තෝරන්න."
+   },
+   "step_4":{
+      "en":"Allow the camera permissions to open the phone camera.",
+      "si": "දුරකථන කැමරාව විවෘත කිරීමට කැමරා අවසර වලට ඉඩ දෙන්න."
+   },
+   "step_5":{
+      "en":"Download and launch the Simple Recharge app.",
+      "si": "සීරීමට ලක්වූ රීචාජ් කාඩ් කාඩ්පතේ ඡායාරූපයක් ගන්න. රීචාජ් කාඩ් පත පැහැදිලිව සීරීමට හා ඡායාරූපයේ ගුණාත්මකභාවය සහතික කිරීමට වග බලා ගන්න."
+   },
+   "step_6":{
+      "en":"Simple recharge take some moment to identify the recharge number of your card.",
+      "si": "යෙදුම ඔබගේ කාඩ්පතේ නැවත ආරෝපණය කිරීමේ අංකය හඳුනා ගැනීමට යම් කාලයක් ගත වේ."
+   },
+    "step_7":{
+      "en":"After successful identification of the recharge number, Simple Recharge will direct you to your dial pad.",
+      "si": "නැවත ආරෝපණය කිරීමේ අංකය සාර්ථකව හඳුනා ගැනීමෙන් පසුව, යෙදුම ඔබේ ඩයල් පෑඩ් වෙත ඔබව යොමු කෙරේ."
+   },
+   "step_8":{
+      "en":"Feel free to confirm the recharge number shown in your dial pad and do the recharge",
+      "si": "ඔබගේ ඩයල් පෑඩ් හි පෙන්වා ඇති නැවත ආරෝපණ අංකය තහවුරු කර නැවත ආරෝපණය කරන්න"
+   },
+   "lang_changed":{
+      "en":"Language",
+      "si": "භාෂාව"
+   },
+   "change_app_lang":{
+      "en":"Change app language",
+      "si": "යෙදුම් භාෂාව වෙනස් කරන්න"
+   },
+   "english":{
+      "en":"English language",
+      "si": "ඉංග්රීසි භාෂාව"
+   },
+   "sinhala":{
+      "en":"Sinhala language",
+      "si": "සිංහල භාෂාව"
+   }
+ }

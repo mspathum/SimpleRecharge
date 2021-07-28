@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:simplerecharge/main.dart';
+import 'package:simplerecharge/state/app_state.dart';
 import 'package:simplerecharge/themes/app_themes.dart';
 import 'package:simplerecharge/widgets/app_widgets/list_empty.dart';
 
@@ -8,6 +10,8 @@ class NotificationsPage extends StatefulWidget {
 }
 
 class _NotificationsPageState extends State<NotificationsPage> {
+  final appState = getIt.get<AppState>();
+
   List<String> notificationList = [];
 
   Widget _buildNotificationCard() {
@@ -38,7 +42,6 @@ class _NotificationsPageState extends State<NotificationsPage> {
                         fontSize: 14.0,
                         color: Colors.black,
                         fontWeight: FontWeight.w500)),
-                //Notification description need to redesign
                 Text('Notifications description goes here.',
                     overflow: TextOverflow.ellipsis,
                     maxLines: 1,
@@ -56,13 +59,13 @@ class _NotificationsPageState extends State<NotificationsPage> {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       appBar: AppBar(
-        title: Text('Notifications',
+        title: Text(appState.getTranslation("Notifications"),
             style: TextStyle(fontSize: 18.0, color: Colors.white)),
         backgroundColor: AppColors.primary,
       ),
       body: notificationList.isEmpty
-          ? ListEmptyImage("No notifications yet",
-              "Stay tuned! Notifications will show up here.")
+          ? ListEmptyImage(appState.getTranslation("No_notifications"),
+              appState.getTranslation("Stay_tuned"))
           : ListView.builder(
               itemCount: notificationList.length,
               itemBuilder: (BuildContext context, int index) {

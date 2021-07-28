@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:simplerecharge/main.dart';
+import 'package:simplerecharge/state/app_state.dart';
 import 'package:simplerecharge/themes/app_themes.dart';
 import 'package:simplerecharge/widgets/app_widgets/custom_image.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -10,6 +12,8 @@ class InfoPage extends StatefulWidget {
 }
 
 class _InfoPageState extends State<InfoPage> {
+  final appState = getIt.get<AppState>();
+
   late BannerAd bannerAd;
   bool isBannerAdReady = false;
 
@@ -47,8 +51,8 @@ class _InfoPageState extends State<InfoPage> {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       appBar: AppBar(
-        title:
-            Text('Info', style: TextStyle(fontSize: 18.0, color: Colors.white)),
+        title: Text(appState.getTranslation("Info"),
+            style: TextStyle(fontSize: 18.0, color: Colors.white)),
         backgroundColor: AppColors.primary,
       ),
       body: SingleChildScrollView(
@@ -78,12 +82,11 @@ class _InfoPageState extends State<InfoPage> {
             ),
           ),
           SizedBox(height: 15.0),
-          Text(
-              "Simple Recharge is an application build to top-up your SIM prepaid. The application protects your privacy and security so you don't need to worry about the safety of your information. Enjoy the hassle-free experience of the application. Simple Recharge is completely free to use application. You can top up your SIM as many times as you want.",
+          Text(appState.getTranslation("Simple_Recharge_is_an_application"),
               textAlign: TextAlign.justify,
               style: TextStyle(fontSize: 14.0, color: Colors.black)),
           SizedBox(height: 15.0),
-          Text("How to use the Simple Recharge application",
+          Text(appState.getTranslation("How_to_use"),
               textAlign: TextAlign.justify,
               style: TextStyle(
                   fontSize: 16.0,
@@ -93,32 +96,28 @@ class _InfoPageState extends State<InfoPage> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Download and launch the Simple Recharge app.",
+              Text(appState.getTranslation("step_1"),
                   style: TextStyle(fontSize: 14.0, color: Colors.black)),
               SizedBox(height: 5.0),
-              Text("Allow app permissions to phone to enable the functions.",
+              Text(appState.getTranslation("step_2"),
                   style: TextStyle(fontSize: 14.0, color: Colors.black)),
               SizedBox(height: 5.0),
-              Text("Select the SIM that you want to recharge.",
+              Text(appState.getTranslation("step_3"),
                   style: TextStyle(fontSize: 14.0, color: Colors.black)),
               SizedBox(height: 5.0),
-              Text("Allow the camera permissions to open the phone camera.",
+              Text(appState.getTranslation("step_4"),
                   style: TextStyle(fontSize: 14.0, color: Colors.black)),
               SizedBox(height: 5.0),
-              Text(
-                  "Take a photo of the scratched recharge card. Make sure to scratch the recharge card clearly and the quality of the photo.",
+              Text(appState.getTranslation("step_5"),
                   style: TextStyle(fontSize: 14.0, color: Colors.black)),
               SizedBox(height: 5.0),
-              Text(
-                  "Simple recharge take some moment to identify the recharge number of your card.",
+              Text(appState.getTranslation("step_6"),
                   style: TextStyle(fontSize: 14.0, color: Colors.black)),
               SizedBox(height: 5.0),
-              Text(
-                  "After successful identification of the recharge number, Simple Recharge will direct you to your dial pad.",
+              Text(appState.getTranslation("step_7"),
                   style: TextStyle(fontSize: 14.0, color: Colors.black)),
               SizedBox(height: 5.0),
-              Text(
-                  "Feel free to confirm the recharge number shown in your dial pad and do the recharge",
+              Text(appState.getTranslation("step_8"),
                   style: TextStyle(fontSize: 14.0, color: Colors.black)),
               SizedBox(height: 5.0),
             ],

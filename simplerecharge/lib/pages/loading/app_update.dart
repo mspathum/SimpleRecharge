@@ -1,5 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:simplerecharge/main.dart';
+import 'package:simplerecharge/state/app_state.dart';
 import 'package:simplerecharge/themes/app_themes.dart';
 import 'package:simplerecharge/constants/app_const.dart';
 import 'package:simplerecharge/utils/url_launcher.dart';
@@ -11,6 +13,13 @@ class AppUpdatePage extends StatefulWidget {
 }
 
 class _AppUpdatePageState extends State<AppUpdatePage> {
+  final appState = getIt.get<AppState>();
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   void onUpdate(BuildContext context) {
     if (Platform.isAndroid == true) {
       launchURL(context, PLAYSTORE_PATH);
@@ -35,7 +44,7 @@ class _AppUpdatePageState extends State<AppUpdatePage> {
               SizedBox(height: 75.0),
               Container(
                 alignment: Alignment.center,
-                child: Text("Version Update",
+                child: Text(appState.getTranslation("Version_Update"),
                     style: TextStyle(
                         fontSize: 18.0,
                         color: Colors.black,
@@ -62,7 +71,7 @@ class _AppUpdatePageState extends State<AppUpdatePage> {
               Container(
                 padding: EdgeInsets.only(left: 18.0, right: 18.0),
                 alignment: Alignment.center,
-                child: Text("We are better than ever!",
+                child: Text(appState.getTranslation("We_are_better_than_ever"),
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         fontSize: 16.0,
@@ -74,7 +83,7 @@ class _AppUpdatePageState extends State<AppUpdatePage> {
                   padding: EdgeInsets.only(left: 18.0, right: 18.0),
                   alignment: Alignment.center,
                   child: Text(
-                    "We have added a few new features & fixed some bugs to make your experience as smooth as possible.",
+                    appState.getTranslation("We_have_added_new_features"),
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 16.0, color: Colors.black),
                   )),
@@ -91,7 +100,7 @@ class _AppUpdatePageState extends State<AppUpdatePage> {
                     borderRadius: BorderRadius.circular(28.0),
                   ),
                 ),
-                child: Text("Update",
+                child: Text(appState.getTranslation("Update"),
                     style: TextStyle(fontSize: 16.0, color: Colors.white)),
                 onPressed: () {
                   onUpdate(context);

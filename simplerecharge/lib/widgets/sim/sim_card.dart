@@ -13,7 +13,7 @@ class SimCardWidget extends StatelessWidget {
     double deviceHeight = MediaQuery.of(context).size.height;
     return GestureDetector(
       onTap: () {
-        this.onCardTapperd(this.displayName);
+        onCardTapperd(displayName);
       },
       child: Card(
         shape: RoundedRectangleBorder(
